@@ -1,0 +1,4 @@
+view header:
+  title: 'View header'
+  description: 'Allow access to view the header. '
+  restrict access: FALSE

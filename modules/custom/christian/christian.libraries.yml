@@ -1,0 +1,9 @@
+christian:
+  version: 1.x
+  css:
+    theme:
+      css/christian.css: {}
+  js:
+    js/christian.js: {}
+  dependencies:
+    - core/jquery

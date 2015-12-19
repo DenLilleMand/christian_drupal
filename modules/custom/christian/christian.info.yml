@@ -1,0 +1,6 @@
+name: Christian
+type: module
+description: 'A Drupal 8 module for christians business site'
+package: Custom Modules
+version: 1.0
+core: 8.x

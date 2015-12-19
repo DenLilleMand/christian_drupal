@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * .module file for all of the hooks that christian module implements.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+function christian_permissions()
+{
+    $permissions = array(
+        'view christian' => array(
+            'title' => t('View christian module'),
+            'description' => t('Permissions to view the christian module'),
+        )
+    );
+    return $permissions;
+}
+
+/**
+ * Implements hook_theme()
+ */
+function christian_theme()
+{
+    return array(
+        'christian_header' => array(
+            'theme' => 'christian_header',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_carousel' => array(
+            'theme' => 'christian_carousel',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_contact' => array(
+            'theme' => 'christian_contact',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_murer_teaser' => array(
+            'theme' => 'christian_murer_teaser',
+            'variables' => array(
+                'items' => array()
+            ),
+        ),
+        'christian_vinduespudsning_teaser' => array(
+            'theme' => 'christian_vinduespudsning_teaser',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_murer' => array(
+            'theme' => 'christian_murer',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_vinduespudsning' => array(
+            'theme' => 'christian_vinduespudsning',
+            'variables' => array(
+                'items' => array(),
+            ),
+        ),
+        'christian_footer' => array(
+            'theme' => 'christian_footer',
+            'variables' => array(
+              'items' => array(),
+            ),
+        ),
+    );
+}
+
+function christian_preprocess_region(&$variables)
+{
+    $region = $variables['elements']['#region'];
+    if ($region === 'content') {
+        $variables['attributes']['class'][] = 'container';
+        $variables['attributes']['class'][] = 'marketing';
+    } else if($region === 'featured_top') {
+        $variables['attributes']['class'][] = 'container';
+        $variables['attributes']['class'][] = 'marketing';
+    }
+}
+
+/**
+ * @param $variables
+ */
+function template_preprocess_christian_carousel(&$variables)
+{
+    global $base_root, $base_path;
+    $image1 = 'imageone.jpg';
+    $image2 = 'imagetwo.jpg';
+    $image3 = 'imagethree.jpg';
+
+    $variables['image1'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image1;
+    $variables['image2'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image2;
+    $variables['image3'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image3;
+}
