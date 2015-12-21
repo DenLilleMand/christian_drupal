@@ -2,6 +2,15 @@
     height:100%;
 }
 
+.flex-slider-image {
+    height:100%;
+}
+
 .messages {
     margin-bottom: 15px;
+}
+
+media="all"
+.carousel-inner>.carousel-item>a>img, .carousel-inner>.carousel-item>img, .img-fluid {
+	height:100%;	
 }
