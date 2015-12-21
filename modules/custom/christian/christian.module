@@ -73,6 +73,12 @@ function christian_theme()
               'items' => array(),
             ),
         ),
+        'christian_contact_teaser' => array(
+            'theme' => 'christian_contact_teaser',
+            'variables' => array(
+                'items' => array(),
+            )
+        ),
     );
 }
 
@@ -85,6 +91,8 @@ function christian_preprocess_region(&$variables)
     } else if($region === 'featured_top') {
         $variables['attributes']['class'][] = 'container';
         $variables['attributes']['class'][] = 'marketing';
+    } else if($region === 'footer_first') {
+        $variables['attributes']['class'][] = 'container';
     }
 }
 
@@ -98,7 +106,47 @@ function template_preprocess_christian_carousel(&$variables)
     $image2 = 'imagetwo.jpg';
     $image3 = 'imagethree.jpg';
 
-    $variables['image1'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image1;
-    $variables['image2'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image2;
-    $variables['image3'] = $base_root . $base_path . drupal_get_path('module', 'flex_slider') . '/images/' . $image3;
+    $variables['image1'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image1;
+    $variables['image2'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image2;
+    $variables['image3'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image3;
 }
+
+/**
+ * @param $variables
+ */
+function template_preprocess_christian_murer(&$variables)
+{
+    global $base_root, $base_path;
+    $image = 'toilet.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}
+
+function template_preprocess_christian_vinduespudsning(&$variables) {
+    global $base_root, $base_path;
+    $image = 'cleaning.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}
+
+function template_preprocess_christian_murer_teaser(&$variables) {
+    global $base_root, $base_path;
+    $image = 'constructionworker.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}
+
+function template_preprocess_christian_vinduespudsning_teaser(&$variables) {
+    global $base_root, $base_path;
+    $image = 'windowcleaner.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}
+
+function template_preprocess_christian_contact_teaser(&$variables) {
+    global $base_root, $base_path;
+    $image = 'christian.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}
+
+/**function template_preprocess_christian_contact(&$variables) {
+    global $base_root, $base_path;
+    $image = 'christian.jpg';
+    $variables['image'] = $base_root . $base_path . drupal_get_path('module', 'christian') . '/images/' . $image;
+}*/

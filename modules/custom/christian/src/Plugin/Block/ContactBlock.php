@@ -23,7 +23,8 @@ use Drupal\Core\Block\BlockBase;
  *      module = "christian"
  * )
  */
-class ContactBlock extends Blockbase {
+class ContactBlock extends Blockbase
+{
     /**
      * Builds and returns the renderable array for this block plugin.
      *
@@ -37,14 +38,8 @@ class ContactBlock extends Blockbase {
      *
      * @see \Drupal\block\BlockViewBuilder
      */
-    public function build() {
-       return array(
-           '#theme' => 'christian_contact',
-           '#attached' => array(
-             'library' => array(
-                    'christian/christian'
-             ),
-           ),
-       );
+    public function build()
+    {
+        return \Drupal::formBuilder()->getForm('Drupal\christian\Form\ContactForm');
     }
 }
