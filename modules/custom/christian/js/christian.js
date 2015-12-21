@@ -8,5 +8,10 @@
         } else {
             console.log('herpderp');
         }
+
+        var imageHeight = $('#block-carouselblock').height();
+        if(imageHeight) {
+            $('.flex-slider-image').height(imageHeight);
+        }
     });
 }(jQuery));

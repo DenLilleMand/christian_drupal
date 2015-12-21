@@ -160,9 +160,6 @@ class ContactForm extends FormBase implements FormInterface {
      */
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
-        $values = $form_state->getValues();
-        $name = $values['first_name'];
-        $info = $values['information'];
         drupal_set_message('Tak fordi du udfyldte formen, vi kontaker dig hurtigst muligt');
     }
 }
