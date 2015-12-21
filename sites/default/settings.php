@@ -1,5 +1,9 @@
 <?php
 
+$config['system.logging']['error_level'] = 'verbose';
+
+$update_free_access = TRUE; 
+
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -709,9 +713,6 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *
  * Keep this code block at the end of this file to take full effect.
  */
-# if (file_exists(__DIR__ . '/settings.local.php')) {
-#   include __DIR__ . '/settings.local.php';
-# }
 $databases['default']['default'] = array (
   'database' => 'christianssite',
   'username' => 'denlillemand',
@@ -722,5 +723,8 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+ if (file_exists(__DIR__ . '/settings.local.php')) {
+   include __DIR__ . '/settings.local.php';
+ }
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_IneEsPw1x5fM4C7GoWMQ9kdqlnQCeN0PsimMMskezIPRmYWvQufBkbvJv68kJPoRgJIAvPLfhA/sync';

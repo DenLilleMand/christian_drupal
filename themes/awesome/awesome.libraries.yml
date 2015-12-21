@@ -5,6 +5,7 @@ global-styling:
       css/bootstrap.min.css: {}
       css/carousel.css: {}
       css/tether.min.css: {}
+      css/custom.css: {}
   js:
     js/tether.min.js: {}
     js/bootstrap.min.js: {}

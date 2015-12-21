@@ -1,0 +1,8 @@
+media="all"
+.carousel-inner>.carousel-item>a>img, .carousel-inner>.carousel-item>img, .img-fluid {
+	height:100%;	
+}
+
+.flex-slider-image {
+	height:100%;
+}
