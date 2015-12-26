@@ -1,0 +1,13 @@
+# A entity to contain contact information for future customers menu items definition
+entity.person.collection:
+  title: 'A entity to contain contact information for future customers list'
+  route_name: entity.person.collection
+  description: 'List A entity to contain contact information for future customers entities'
+  parent: system.admin_structure
+  weight: 100
+
+person.admin.structure.settings:
+  title: A entity to contain contact information for future customers settings
+  description: 'Configure A entity to contain contact information for future customers entities'
+  route_name: person.settings
+  parent: system.admin_structure

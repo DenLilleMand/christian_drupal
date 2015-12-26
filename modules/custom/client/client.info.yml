@@ -1,0 +1,5 @@
+name: client
+type: module
+description: whatever
+core: 8.x
+package: Other

@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains person.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function person_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the person module.
+    case 'help.page.person':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A module to contain the person entity, which contains future customers') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function person_theme() {
+  $theme = [];
+
+  return $theme;
+}

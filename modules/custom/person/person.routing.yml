@@ -1,0 +1,60 @@
+# Person routing definition
+entity.person.canonical:
+  path: '/admin/structure/person/{person}'
+  defaults:
+    _entity_view: 'person'
+    _title: 'A entity to contain contact information for future customers'
+  requirements:
+    _entity_access: 'person.view'
+  options:
+    _admin_route: TRUE
+
+entity.person.collection:
+  path: '/admin/structure/person'
+  defaults:
+    _entity_list: 'person'
+    _title: 'A entity to contain contact information for future customers list'
+  requirements:
+    _permission: 'view a entity to contain contact information for future customers entities'
+  options:
+    _admin_route: TRUE
+
+entity.person.add_form:
+  path: '/admin/structure/person/add'
+  defaults:
+    _entity_form: person.add
+    _title: 'Add A entity to contain contact information for future customers'
+  requirements:
+    _permission: 'add a entity to contain contact information for future customers entities'
+  options:
+    _admin_route: TRUE
+
+entity.person.edit_form:
+  path: '/admin/structure/person/{person}/edit'
+  defaults:
+    _entity_form: person.edit
+    _title: 'Edit A entity to contain contact information for future customers'
+  requirements:
+    _permission: 'edit a entity to contain contact information for future customers entities'
+  options:
+    _admin_route: TRUE
+
+entity.person.delete_form:
+  path: '/admin/structure/person/{person}/delete'
+  defaults:
+    _entity_form: person.delete
+    _title: 'Delete A entity to contain contact information for future customers'
+  requirements:
+    _permission: 'delete a entity to contain contact information for future customers entities'
+  options:
+    _admin_route: TRUE
+
+person.settings:
+  path: '/admin/structure/person/settings'
+  defaults:
+   _form: '\Drupal\person\Form\PersonSettingsForm'
+   _title: 'A entity to contain contact information for future customers settings'
+  requirements:
+    _permission: 'administer a entity to contain contact information for future customers entities'
+  options:
+    _admin_route: TRUE

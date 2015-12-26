@@ -1,0 +1,18 @@
+1. Okay man kan describe alle tables, som ligner noget hvor modules kan være enabled, Så gå ind og disable det module.
+det er nok meget rart at vide hvor modules er enabled til senere :), og kunne generalt være interessersant at undersøge alle de
+steder i databasen hvor ens modul forekommer når det er enabled, sådan at man altid kan manuelt rengører. databasen og revert commit.
+måske dette i kombination med 4.
+
+2. Man kan prøve at oprette det table som det ikke kan finde.(lol)
+
+3. Man kan ignorerer uninstall sektionen af hjemmesiden, indtil der er et ordentligt fix, eller at jeg lærer
+noget som kan fixe det.
+
+
+4. Problemet er stadig ikke i produktion, pga. databasen er der hvor problemet ligger,
+så måske kan vi kopiere indholdet af produktions databasen over i localhost, selvom det virker
+som en fjollet ting, vil det virke og man kan komme videre.
+
+
+5.Pragmatisk løsning, arbejd videre med entities, kald det noget andet end før.
+Når jeg møder ind på arbejde mandag kan jeg spørge Kasper hvordan det kan gøres.

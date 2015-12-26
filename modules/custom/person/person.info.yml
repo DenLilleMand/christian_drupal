@@ -1,0 +1,5 @@
+name: person
+type: module
+description: A module to contain the person entity, which contains future customers
+core: 8.x
+package: Other

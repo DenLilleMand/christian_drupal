@@ -1,0 +1,19 @@
+add a entity to contain contact information for future customers entities:
+  title: 'Create new A entity to contain contact information for future customers entities'
+
+administer a entity to contain contact information for future customers entities:
+  title: 'Administer A entity to contain contact information for future customers entities'
+  description: 'Allow to access the administration form to configure A entity to contain contact information for future customers entities.'
+  restrict access: true
+
+delete a entity to contain contact information for future customers entities:
+  title: 'Delete A entity to contain contact information for future customers entities'
+
+edit a entity to contain contact information for future customers entities:
+  title: 'Edit A entity to contain contact information for future customers entities'
+
+view published a entity to contain contact information for future customers entities:
+  title: 'View published A entity to contain contact information for future customers entities'
+
+view unpublished a entity to contain contact information for future customers entities:
+  title: 'View unpublished A entity to contain contact information for future customers entities'

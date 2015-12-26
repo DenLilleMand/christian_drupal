@@ -1,0 +1,14 @@
+{
+  "name": "drupal/person",
+  "type": "drupal-module",
+  "description": "A module to contain the person entity, which contains future customers",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/person",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/person",
+    "source": "http://cgit.drupalcode.org/person"
+  },
+  "require": { }
+}

@@ -1,0 +1,61 @@
+
+# Contact routing definition
+entity.contact_lol.canonical:
+  path: '/admin/structure/contact_lol/{contact_lol}'
+  defaults:
+    _entity_view: 'contact_lol'
+    _title: 'Contact'
+  requirements:
+    _entity_access: 'contact_lol.view'
+  options:
+    _admin_route: TRUE
+
+entity.contact_lol.collection:
+  path: '/admin/structure/contact_lol'
+  defaults:
+    _entity_list: 'contact_lol'
+    _title: 'Contact list'
+  requirements:
+    _permission: 'view contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.contact_lol.add_form:
+  path: '/admin/structure/contact_lol/add'
+  defaults:
+    _entity_form: contact_lol.add
+    _title: 'Add Contact'
+  requirements:
+    _permission: 'add contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.contact_lol.edit_form:
+  path: '/admin/structure/contact_lol/{contact_lol}/edit'
+  defaults:
+    _entity_form: contact_lol.edit
+    _title: 'Edit Contact'
+  requirements:
+    _permission: 'edit contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.contact_lol.delete_form:
+  path: '/admin/structure/contact_lol/{contact_lol}/delete'
+  defaults:
+    _entity_form: contact_lol.delete
+    _title: 'Delete Contact'
+  requirements:
+    _permission: 'delete contact entities'
+  options:
+    _admin_route: TRUE
+
+contact_lol.settings:
+  path: '/admin/structure/contact_lol/settings'
+  defaults:
+   _form: '\Drupal\contact\Form\ContactSettingsForm'
+   _title: 'Contact settings'
+  requirements:
+    _permission: 'administer contact entities'
+  options:
+    _admin_route: TRUE

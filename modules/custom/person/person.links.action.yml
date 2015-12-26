@@ -1,0 +1,7 @@
+entity.person.add_form:
+  route_name: entity.person.add_form
+  title: 'Add A entity to contain contact information for future customers'
+  appears_on:
+    - entity.person.collection
+    - entity.person.canonical
+

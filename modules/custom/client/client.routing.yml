@@ -1,0 +1,61 @@
+
+# Client routing definition
+entity.client.canonical:
+  path: '/admin/structure/client/{client}'
+  defaults:
+    _entity_view: 'client'
+    _title: 'Client'
+  requirements:
+    _entity_access: 'client.view'
+  options:
+    _admin_route: TRUE
+
+entity.client.collection:
+  path: '/admin/structure/client'
+  defaults:
+    _entity_list: 'client'
+    _title: 'Client list'
+  requirements:
+    _permission: 'view client entities'
+  options:
+    _admin_route: TRUE
+
+entity.client.add_form:
+  path: '/admin/structure/client/add'
+  defaults:
+    _entity_form: client.add
+    _title: 'Add Client'
+  requirements:
+    _permission: 'add client entities'
+  options:
+    _admin_route: TRUE
+
+entity.client.edit_form:
+  path: '/admin/structure/client/{client}/edit'
+  defaults:
+    _entity_form: client.edit
+    _title: 'Edit Client'
+  requirements:
+    _permission: 'edit client entities'
+  options:
+    _admin_route: TRUE
+
+entity.client.delete_form:
+  path: '/admin/structure/client/{client}/delete'
+  defaults:
+    _entity_form: client.delete
+    _title: 'Delete Client'
+  requirements:
+    _permission: 'delete client entities'
+  options:
+    _admin_route: TRUE
+
+client.settings:
+  path: '/admin/structure/client/settings'
+  defaults:
+   _form: '\Drupal\client\Form\ClientSettingsForm'
+   _title: 'Client settings'
+  requirements:
+    _permission: 'administer client entities'
+  options:
+    _admin_route: TRUE

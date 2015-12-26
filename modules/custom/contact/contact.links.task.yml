@@ -1,0 +1,21 @@
+# Contact routing definition
+contact_lol.settings_tab:
+  route_name: contact_lol.settings
+  title: 'Settings'
+  base_route: contact_lol.settings
+entity.contact_lol.canonical:
+  route_name: entity.contact_lol.canonical
+  base_route: entity.contact_lol.canonical
+  title: 'View'
+
+entity.contact_lol.edit_form:
+  route_name: entity.contact_lol.edit_form
+  base_route: entity.contact_lol.canonical
+  title: Edit
+
+entity.contact_lol.delete_form:
+  route_name:  entity.contact_lol.delete_form
+  base_route:  entity.contact_lol.canonical
+  title: Delete
+  weight: 10
+

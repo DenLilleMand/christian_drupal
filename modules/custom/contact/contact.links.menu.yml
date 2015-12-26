@@ -1,0 +1,13 @@
+# Contact menu items definition
+entity.contact_lol.collection:
+  title: 'Contact list'
+  route_name: entity.contact_lol.collection
+  description: 'List Contact entities'
+  parent: system.admin_structure
+  weight: 100
+
+contact_lol.admin.structure.settings:
+  title: Contact settings
+  description: 'Configure Contact entities'
+  route_name: contact_lol.settings
+  parent: system.admin_structure
