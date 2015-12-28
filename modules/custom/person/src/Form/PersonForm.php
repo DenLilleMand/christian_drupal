@@ -25,8 +25,8 @@ class PersonForm extends ContentEntityForm
      */
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        global $base_root, $base_path;
         /* @var $entity \Drupal\person\Entity\Person */
+        global $base_root, $base_path;
         $form = parent::buildForm($form, $form_state);
         $entity = $this->entity;
 
