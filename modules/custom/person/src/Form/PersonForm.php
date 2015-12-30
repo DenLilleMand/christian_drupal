@@ -99,8 +99,8 @@ class PersonForm extends ContentEntityForm
                 'id' => 'description_field_id'
             ),
         );
-        $form['row-featurette']['form']['actions'] = array('#type' => 'actions');
-        $form['row-featurette']['form']['actions']['submit'] = array(
+       /** $form['row-featurette']['form']['actions'] = array('#type' => 'actions'); */
+        $form['actions']['submit'] = array(
             '#type' => 'submit',
             '#value' => $this->t('Send'),
             '#attributes' => array(
@@ -162,7 +162,8 @@ class PersonForm extends ContentEntityForm
                     '%label' => $entity->label(),
                 ]));
         }
-        $form_state->setRedirect('entity.person.edit_form', ['person' => $entity->id()]);
+        //Redirect for edit(not that sexy for users rofl):
+        // $form_state->setRedirect('entity.person.edit_form', ['person' => $entity->id()]);
     }
 
 }

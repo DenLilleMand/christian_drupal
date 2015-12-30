@@ -16,7 +16,8 @@ namespace Drupal\person\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Form\FormBuilderInterface;
+use Drupal\Core\Entity\EntityFormBuilderInterface;
+use Drupal\person\Entity\Person;
 
 /**
  * @Block(
@@ -27,43 +28,6 @@ use Drupal\Core\Form\FormBuilderInterface;
  */
 class PersonBlock extends Blockbase implements ContainerFactoryPluginInterface
 {
-
-    /**
-     * @var FormBuilderInterface
-     */
-    protected $formBuilder;
-
-    /**
-     * @param array $configuration
-     * @param string $plugin_id
-     * @param mixed $plugin_definition
-     * @param $formBuilder
-     */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, $formBuilder)
-    {
-        parent::__construct($configuration, $plugin_id, $plugin_definition);
-        $this->formBuilder = $formBuilder;
-    }
-
-    /**
-     * Builds and returns the renderable array for this block plugin.
-     *
-     * If a block should not be rendered because it has no content, then this
-     * method must also ensure to return no content: it must then only return an
-     * empty array, or an empty array with #cache set (with cacheability metadata
-     * indicating the circumstances for it being empty).
-     *
-     * @return array
-     *   A renderable array representing the content of the block.
-     *
-     * @see \Drupal\block\BlockViewBuilder
-     */
-    public function build()
-    {
-        return $this->formBuilder->getForm('Drupal\person\Form\PersonForm');
-    }
-
-
     /**
      * Creates an instance of the plugin.
      *
@@ -85,7 +49,53 @@ class PersonBlock extends Blockbase implements ContainerFactoryPluginInterface
             $configuration,
             $plugin_id,
             $plugin_definition,
-            $container->get('form_builder')
+            $container->get('entity.form_builder')
         );
+    }
+
+    /**
+     * @var EntityFormBuilderInterface
+     */
+    protected $entityFormBuilder;
+
+    /**
+     * @param array $configuration
+     * @param string $plugin_id
+     * @param mixed $plugin_definition
+     * @param $entityFormBuilder
+     */
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, $entityFormBuilder)
+    {
+        parent::__construct($configuration, $plugin_id, $plugin_definition);
+        $this->entityFormBuilder = $entityFormBuilder;
+    }
+
+    /**
+     * Builds and returns the renderable array for this block plugin.
+     *
+     * If a block should not be rendered because it has no content, then this
+     * method must also ensure to return no content: it must then only return an
+     * empty array, or an empty array with #cache set (with cacheability metadata
+     * indicating the circumstances for it being empty).
+     *
+     * @return array
+     *   A renderable array representing the content of the block.
+     *
+     * @see \Drupal\block\BlockViewBuilder
+     *
+     * Jeg taenkte at finde noget kode som bruger den her entityforbuilder metode, og see hvordan de faar fat i vores entity:
+     * https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Entity!EntityFormBuilder.php/function/EntityFormBuilder%3A%3AgetForm/8
+     *
+     * Nogle moduler som gør det samme:
+     * https://www.drupal.org/project/entityform_block
+     *
+     * https://www.drupal.org/project/eform
+     *
+     * Ellers er EntityInterface::create() en mulighed, men jeg synes det virker lidt far fetched???
+     * https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21EntityInterface.php/interface/EntityInterface/8
+     */
+    public function build()
+    {
+        return $this->entityFormBuilder->getForm( Person::create(array()), 'default', array());
     }
 }
