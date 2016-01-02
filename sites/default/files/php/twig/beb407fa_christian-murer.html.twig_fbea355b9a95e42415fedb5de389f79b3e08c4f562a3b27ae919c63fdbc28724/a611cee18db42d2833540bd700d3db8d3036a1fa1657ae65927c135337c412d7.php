@@ -43,16 +43,33 @@ class __TwigTemplate_eb56201fe7b6da0ad40d86d81cffaf9600eac1c4dddfb7b307d89fa6c89
         echo "<hr class=\"featurette-divider\">
 <div class=\"row featurette\" id=\"christian-murer-section\">
     <div class=\"col-md-7 col-md-push-5\">
-        <h2 class=\"featurette-heading\">Verdensklasse håndværk<span class=\"text-muted\"> og det er billigt</span></h2>
+        <h2 class=\"featurette-heading\">Håndværk osv. osv.<span class=\"text-muted\"> osv. </span></h2>
         <p class=\"lead\">
-            Hos os får du dansk murerarbejde fra start til slut, både når det drejer sig om store entrepriser eller små mureropgaver efter aftale.
-            Vi giver dig sikkerhed for professionelt håndværk med en tilfredsstillende service oveni. Og så er vi naturligvis omfattet af Byggaranti, hvis uheldet skulle være ude.
-            Vi er stolte af tilfredse kunder, og det bliver vi kun ved med at have, hvis kvaliteten hver gang er i top og prisen er konkurrencedygtig.
+        <ul>
+            <li>
+                Opsætning af Fliser og Klinker
+            </li>
+            <li>
+                Vådrumsikring af fx badeværelser
+            </li>
+            <li>
+                Omfugning af murværk
+            </li>
+            <li>
+                Reparation af murværk
+            </li>
+            <li>
+                Facade isolering og puds
+            </li>
+            <li>
+                Vandskuring
+            </li>
+        </ul>
         </p>
     </div>
     <div class=\"col-md-5 col-md-pull-7\">
         <img class=\"featurette-image img-fluid center-block\" src=";
-        // line 12
+        // line 29
         echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["image"]) ? $context["image"] : null), "html", null, true));
         echo " alt=\"murer\">
     </div>
@@ -71,17 +88,34 @@ class __TwigTemplate_eb56201fe7b6da0ad40d86d81cffaf9600eac1c4dddfb7b307d89fa6c89
 
     public function getDebugInfo()
     {
-        return array (  56 => 12,  43 => 1,);
+        return array (  73 => 29,  43 => 1,);
     }
 }
 /* <hr class="featurette-divider">*/
 /* <div class="row featurette" id="christian-murer-section">*/
 /*     <div class="col-md-7 col-md-push-5">*/
-/*         <h2 class="featurette-heading">Verdensklasse håndværk<span class="text-muted"> og det er billigt</span></h2>*/
+/*         <h2 class="featurette-heading">Håndværk osv. osv.<span class="text-muted"> osv. </span></h2>*/
 /*         <p class="lead">*/
-/*             Hos os får du dansk murerarbejde fra start til slut, både når det drejer sig om store entrepriser eller små mureropgaver efter aftale.*/
-/*             Vi giver dig sikkerhed for professionelt håndværk med en tilfredsstillende service oveni. Og så er vi naturligvis omfattet af Byggaranti, hvis uheldet skulle være ude.*/
-/*             Vi er stolte af tilfredse kunder, og det bliver vi kun ved med at have, hvis kvaliteten hver gang er i top og prisen er konkurrencedygtig.*/
+/*         <ul>*/
+/*             <li>*/
+/*                 Opsætning af Fliser og Klinker*/
+/*             </li>*/
+/*             <li>*/
+/*                 Vådrumsikring af fx badeværelser*/
+/*             </li>*/
+/*             <li>*/
+/*                 Omfugning af murværk*/
+/*             </li>*/
+/*             <li>*/
+/*                 Reparation af murværk*/
+/*             </li>*/
+/*             <li>*/
+/*                 Facade isolering og puds*/
+/*             </li>*/
+/*             <li>*/
+/*                 Vandskuring*/
+/*             </li>*/
+/*         </ul>*/
 /*         </p>*/
 /*     </div>*/
 /*     <div class="col-md-5 col-md-pull-7">*/

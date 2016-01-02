@@ -7,6 +7,8 @@
 
 namespace Drupal\person\Entity;
 
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
@@ -30,7 +32,7 @@ use Drupal\user\UserInterface;
  *     "form" = {
  *       "default" = "Drupal\person\Form\PersonForm",
  *       "add" = "Drupal\person\Form\PersonForm",
- *       "edit" = "Drupal\person\Form\PersonForm",
+ *       "edit" = "Drupal\person\Form\PersonEditForm",
  *       "delete" = "Drupal\person\Form\PersonDeleteForm",
  *     },
  *     "access" = "Drupal\person\PersonAccessControlHandler",
@@ -46,6 +48,7 @@ use Drupal\user\UserInterface;
  *     "phone" = "phone",
  *     "description" = "description",
  *     "langcode" = "langcode",
+ *     "processed" = "processed"
  *   },
  *   links = {
  *     "canonical" = "/admin/person/{person}",
@@ -275,6 +278,11 @@ class Person extends ContentEntityBase implements PersonInterface
             ->setDescription(t('A boolean indicating whether the A entity to contain contact information for future customers is published.'))
             ->setDefaultValue(TRUE);
 
+        $fields['processed'] = BaseFieldDefinition::create('boolean')
+            ->setLabel(t('Processed'))
+            ->setDescription(t('A boolean describeing if a customer has been contacted or not.'))
+            ->setDefaultValue(FALSE);
+
         $fields['langcode'] = BaseFieldDefinition::create('language')
             ->setLabel(t('Language code'))
             ->setDescription(t('The language code for the A entity to contain contact information for future customers entity.'));
@@ -301,8 +309,124 @@ class Person extends ContentEntityBase implements PersonInterface
             ->setLabel(t('Description'))
             ->setDescription(t('A description of whatever task the future customer wants to be contacted about'))
             ->setDefaultValue('');
-
         return $fields;
     }
 
+    /**
+     * Gets the timestamp of the last entity change for the current translation.
+     *
+     * @return int
+     *   The timestamp of the last entity save operation.
+     */
+    public function getChangedTime()
+    {
+        // TODO: Implement getChangedTime() method.
+    }
+
+    /**
+     * Sets the timestamp of the last entity change for the current translation.
+     *
+     * @param int $timestamp
+     *   The timestamp of the last entity save operation.
+     *
+     * @return $this
+     */
+    public function setChangedTime($timestamp)
+    {
+        // TODO: Implement setChangedTime() method.
+    }
+
+    /**
+     * Gets the timestamp of the last entity change across all translations.
+     *
+     * @return int
+     *   The timestamp of the last entity save operation across all
+     *   translations.
+     */
+    public function getChangedTimeAcrossTranslations()
+    {
+        // TODO: Implement getChangedTimeAcrossTranslations() method.
+    }
+
+    /**
+     * Returns if we've contacted the specific customer.
+     * @return bool processed
+     */
+    public function isProcessed()
+    {
+        return (bool)$this->getEntityKey('processed');
+    }
+
+    /**
+     * return \Drupal\person\PersonInterface
+     * A entity to contain contact information for future customers.
+     * @return $this
+     */
+    public function process()
+    {
+        $this->set('processed', true);
+        return $this;
+    }
+
+    /**
+     * Adds cache contexts.
+     *
+     * @param string[] $cache_contexts
+     *   The cache contexts to be added.
+     *
+     * @return $this
+     */
+    public function addCacheContexts(array $cache_contexts)
+    {
+        // TODO: Implement addCacheContexts() method.
+    }
+
+    /**
+     * Adds cache tags.
+     *
+     * @param string[] $cache_tags
+     *   The cache tags to be added.
+     *
+     * @return $this
+     */
+    public function addCacheTags(array $cache_tags)
+    {
+        // TODO: Implement addCacheTags() method.
+    }
+
+    /**
+     * Merges the maximum age (in seconds) with the existing maximum age.
+     *
+     * The max age will be set to the given value if it is lower than the existing
+     * value.
+     *
+     * @param int $max_age
+     *   The max age to associate.
+     *
+     * @return $this
+     *
+     * @throws \InvalidArgumentException
+     *   Thrown if a non-integer value is supplied.
+     */
+    public function mergeCacheMaxAge($max_age)
+    {
+        // TODO: Implement mergeCacheMaxAge() method.
+    }
+
+    /**
+     * Adds a dependency on an object: merges its cacheability metadata.
+     *
+     * @param \Drupal\Core\Cache\CacheableDependencyInterface|object $other_object
+     *   The dependency. If the object implements CacheableDependencyInterface,
+     *   then its cacheability metadata will be used. Otherwise, the passed in
+     *   object must be assumed to be uncacheable, so max-age 0 is set.
+     *
+     * @return $this
+     *
+     * @see \Drupal\Core\Cache\CacheableMetadata::createFromObject()
+     */
+    public function addCacheableDependency($other_object)
+    {
+        // TODO: Implement addCacheableDependency() method.
+    }
 }

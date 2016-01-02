@@ -125,4 +125,17 @@ interface PersonInterface extends ContentEntityInterface, EntityChangedInterface
      * @return string phone
      */
     public function getPhone();
+
+    /**
+     * Returns if we've contacted the specific customer.
+     * @return bool processed
+     */
+    public function isProcessed();
+
+    /**
+     * return \Drupal\person\PersonInterface
+     * A entity to contain contact information for future customers.
+     */
+    public function process();
+
 }

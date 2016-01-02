@@ -43,17 +43,35 @@ class __TwigTemplate_c625a4a28fac3808a32d7fd25aec87727292713beac3ad9a442ae0c52b4
         echo "<hr class=\"featurette-divider\">
 <div class=\"row featurette\" id=\"christian-vinduespudsning-section\">
     <div class=\"col-md-7\">
-        <h2 class=\"featurette-heading\">Rengøring der holder dine flader skinnende rene <span class=\"text-muted\"> hos privat, erhverv og trappeopgange </span></h2>
+        <h2 class=\"featurette-heading\">Vi kommer altid til tiden<span class=\"text-muted\"> og kvaliteten er altid 100% i orden. </span>
+        </h2>
         <p class=\"lead\">
-            For mange mennesker står rengøring ikke øverst på deres to-do liste.
-            rengøring er både tidskrævende og vanskeligt.
-            I stedet kan du få en professionel rengøringsperson hos os til at sørge for,
-            at dine flader er flotte og rene året rundt til en lav pris — og uden at få sved på panden.
+        <ul>
+            <li>
+                Indvendig og Udvendig vinduespudsning - mulighed for fast vindues pudsning alt efter dit behov uden
+                nogen form for binding<br/>
+            </li>
+            <li>
+                Afrensning af vinduer for eksempelvis klistermærker og maling-rester
+            </li>
+            <li>
+                Vask af vindueskarme
+            </li>
+            <li>
+                Trappevask
+            </li>
+            <li>
+                Persiennevask
+            </li>
+            <li>
+                Tæpperens
+            </li>
+        </ul>
         </p>
     </div>
-    <div class=\"col-md-5\">
+    <div class=\"col-md-5 image-col\">
         <img class=\"featurette-image img-fluid center-block\" src=";
-        // line 13
+        // line 31
         echo $this->env->getExtension('sandbox')->ensureToStringAllowed($this->env->getExtension('drupal_core')->escapeFilter($this->env, (isset($context["image"]) ? $context["image"] : null), "html", null, true));
         echo " alt=\"Vinduespudsning\">
     </div>
@@ -72,21 +90,39 @@ class __TwigTemplate_c625a4a28fac3808a32d7fd25aec87727292713beac3ad9a442ae0c52b4
 
     public function getDebugInfo()
     {
-        return array (  57 => 13,  43 => 1,);
+        return array (  75 => 31,  43 => 1,);
     }
 }
 /* <hr class="featurette-divider">*/
 /* <div class="row featurette" id="christian-vinduespudsning-section">*/
 /*     <div class="col-md-7">*/
-/*         <h2 class="featurette-heading">Rengøring der holder dine flader skinnende rene <span class="text-muted"> hos privat, erhverv og trappeopgange </span></h2>*/
+/*         <h2 class="featurette-heading">Vi kommer altid til tiden<span class="text-muted"> og kvaliteten er altid 100% i orden. </span>*/
+/*         </h2>*/
 /*         <p class="lead">*/
-/*             For mange mennesker står rengøring ikke øverst på deres to-do liste.*/
-/*             rengøring er både tidskrævende og vanskeligt.*/
-/*             I stedet kan du få en professionel rengøringsperson hos os til at sørge for,*/
-/*             at dine flader er flotte og rene året rundt til en lav pris — og uden at få sved på panden.*/
+/*         <ul>*/
+/*             <li>*/
+/*                 Indvendig og Udvendig vinduespudsning - mulighed for fast vindues pudsning alt efter dit behov uden*/
+/*                 nogen form for binding<br/>*/
+/*             </li>*/
+/*             <li>*/
+/*                 Afrensning af vinduer for eksempelvis klistermærker og maling-rester*/
+/*             </li>*/
+/*             <li>*/
+/*                 Vask af vindueskarme*/
+/*             </li>*/
+/*             <li>*/
+/*                 Trappevask*/
+/*             </li>*/
+/*             <li>*/
+/*                 Persiennevask*/
+/*             </li>*/
+/*             <li>*/
+/*                 Tæpperens*/
+/*             </li>*/
+/*         </ul>*/
 /*         </p>*/
 /*     </div>*/
-/*     <div class="col-md-5">*/
+/*     <div class="col-md-5 image-col">*/
 /*         <img class="featurette-image img-fluid center-block" src={{ image }} alt="Vinduespudsning">*/
 /*     </div>*/
 /* </div>*/

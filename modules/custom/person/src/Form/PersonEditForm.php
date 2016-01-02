@@ -1,31 +1,34 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: denlillemand
+ * Date: 12/31/15
+ * Time: 12:30 AM
+ */
 
 /**
  * @file
- * Contains \Drupal\person\Form\PersonForm.
+ * Contains Drupal\person\Form\PersonEditForm
  */
 
 namespace Drupal\person\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Language\Language;
 use Drupal\Core\Entity\ContentEntityFormInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Form controller for A entity to contain contact information for future customers edit forms.
- *
+ * Class PersonEditForm
+ * @package Drupal\person\Form
  * @ingroup person
  */
-class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
-{
+class PersonEditForm extends ContentEntityForm implements ContentEntityFormInterface {
 
     /**
      * {@inheritdoc}
      */
-    public function buildForm(array $form, FormStateInterface $form_state)
-    {
-        /* @var $entity \Drupal\person\Entity\Person */
+    public function buildForm(array $form, FormStateInterface $form_state) {
+        /** @var $entity \Drupal\person\Entity\Person */
         global $base_root, $base_path;
         $form = parent::buildForm($form, $form_state);
         $entity = $this->entity;
@@ -41,6 +44,7 @@ class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
                 'class' => array('row', 'featurette'),
             ),
         );
+
         //form
         $form['row-featurette']['form'] = array(
             '#type' => 'container',
@@ -48,9 +52,6 @@ class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
                 'class' => array('col-md-7'),
                 'id' => 'contact-form'
             ),
-        );
-        $form['row-featurette']['form']['header'] = array(
-            '#markup' => '<h2>Lad os kontakte dig</h2>'
         );
 
         //number
@@ -69,7 +70,9 @@ class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
                 'class' => array('form-control'),
                 'id' => 'number-field'
             ),
+            '#default_value' => $entity->getPhone()
         );
+
         //email
         $form['row-featurette']['form']['email-fieldset'] = array(
             '#type' => 'fieldset',
@@ -77,17 +80,21 @@ class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
                 'class' => array('form-group')
             ),
         );
+
         $form['row-featurette']['form']['email-fieldset']['email-label'] = array(
             '#markup' => '<label for="email-field">Email</label>'
         );
+
         $form['row-featurette']['form']['email-fieldset']['email-field'] = array(
             '#type' => 'textfield',
             '#attributes' => array(
                 'class' => array('form-control'),
                 'id' => 'email-field'
             ),
+            '#default_value' => $entity->getEmail()
         );
-        $form['row-featurette']['form']['description-fieldset']['description-field'] = array(
+
+        $form['row-featurette']['form']['description-fieldset'] = array(
             '#type' => 'fieldset',
             '#attributes' => array(
                 'class' => array('form-group'),
@@ -104,61 +111,65 @@ class PersonForm extends ContentEntityForm implements ContentEntityFormInterface
                 'class' => array('form-control'),
                 'id' => 'description_field_id'
             ),
+            '#default_value' => $entity->getDescription()
         );
 
-        $form['row-featurette']['form']['actions'] = array('#type' => 'actions');
+        $form['row-featurette']['form']['processed-fieldset'] = array(
+            '#type' => 'fieldset',
+            '#attributes' => array(
+                'class' => array('form-group'),
+            ),
+        );
+
+        $form['row-featurette']['form']['processed-fieldset']['processed-label'] = array(
+            '#markup' => '<label for="processed_checkbox_id">Processed</label>'
+        );
+
+        $form['row-featurette']['form']['processed-fieldset']['processed-checkbox'] = array(
+            '#type' => 'checkbox',
+            '#attributes' => array(
+                'class' => array('form-control'),
+                'id' => 'processed_box_id'
+            ),
+            '#default_value' => $entity->isProcessed()
+        );
+
+        /** $form['row-featurette']['form']['actions'] = array('#type' => 'actions'); */
         $form['actions']['submit'] = array(
             '#type' => 'submit',
-            '#value' => $this->t('Send'),
+            '#value' => $this->t('Update'),
             '#attributes' => array(
                 'class' => array('btn', 'btn-success', 'btn-lg')
             ),
             '#name' => '',
         );
-
-        //image
-        $form['row-featurette']['image'] = array(
-            '#type' => 'container',
-            '#attributes' => array(
-                'class' => array('col-md-5'),
-                'id' => 'contact-form-image'
-            ),
-        );
-
-        $form['row-featurette']['image']['contact-image'] = array(
-            '#markup' => '<img id="contact-image" class="featurette-image img-fluid center-block" src=' . $image_url .' alt="Kontakt billed">'
-        );
-
-        $form['langcode'] = array(
-            '#title' => $this->t('Language'),
-            '#type' => 'language_select',
-            '#default_value' => $entity->langcode->value,
-            '#languages' => Language::STATE_ALL,
-        );
         return $form;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function validateForm(array &$form, FormStateInterface $form_state)
     {
-        return parent::validateForm($form, $form_state);
+        return parent::validateForm($form, $form_state); //TODO: Change the autogenerated stub
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
+        parent::submitForm($form, $form_state); // TODO: Change the autogenerated stub
         /* @var $entity \Drupal\person\Entity\Person */
         $entity = $this->entity;
         $values = $form_state->getValues();
         $entity->setDescription($values['description-textarea']);
         $entity->setPhone($values['number-field']);
         $entity->setEmail($values['email-field']);
-        $status = $entity->save();
-        if($status) {
-            drupal_set_message($this->t('Tak fordi du udfyldte oplysningerne, vi vil kontakte dig hurtigst muligt'));
-        } else {
-           //@TODO: validate formen ordentligt saadan at der kommer røde streger rundt om felterne, maaske skal det gøres i validateForm metoden istedet :)
+        if($values['processed-checkbox']) {
+            $entity->process();
         }
-
-        //Redirect for edit(not that sexy for users rofl):
-        // $form_state->setRedirect('entity.person.edit_form', ['person' => $entity->id()]);
+        $entity->save();
     }
 }
+

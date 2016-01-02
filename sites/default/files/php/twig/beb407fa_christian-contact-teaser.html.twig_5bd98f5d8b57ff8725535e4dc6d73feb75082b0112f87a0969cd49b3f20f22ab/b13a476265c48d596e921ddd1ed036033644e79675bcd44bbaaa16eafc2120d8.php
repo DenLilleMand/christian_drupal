@@ -59,7 +59,7 @@ class __TwigTemplate_cdda8fd1094a907775554e1a406c18f4094297723c0c15a1658c6dd31b4
         </div>
     </p>
     <p>
-        <a class=\"btn btn-secondary contact-teaser-button\" href=\"#christian-contact-form-id\" role=\"button\">
+        <a class=\"btn btn-secondary contact-teaser-button\" href=\"#contact-form\" role=\"button\">
             Eller lad os kontakte dig &raquo;
         </a>
     </p>
@@ -97,7 +97,7 @@ class __TwigTemplate_cdda8fd1094a907775554e1a406c18f4094297723c0c15a1658c6dd31b4
 /*         </div>*/
 /*     </p>*/
 /*     <p>*/
-/*         <a class="btn btn-secondary contact-teaser-button" href="#christian-contact-form-id" role="button">*/
+/*         <a class="btn btn-secondary contact-teaser-button" href="#contact-form" role="button">*/
 /*             Eller lad os kontakte dig &raquo;*/
 /*         </a>*/
 /*     </p>*/

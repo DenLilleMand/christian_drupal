@@ -1,4 +1,3 @@
-# Person routing definition
 entity.person.canonical:
   path: '/admin/structure/person/{person}'
   defaults:
