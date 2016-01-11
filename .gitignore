@@ -1,1 +1,9 @@
 settings.local.php
+
+
+# JetBrains IDEs  
+
+*.iml
+
+## Directory-based project format:
+.idea/
